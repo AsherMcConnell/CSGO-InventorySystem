@@ -11,7 +11,7 @@ import AVKit
 struct CaseOpening: View {
     
     @Environment(\.presentationMode) var presentationMode
-//    @Binding var showOpening: Bool
+    @Binding var showOpening: Bool
     @State var isAnimated: Bool = false
     
     var audio: AVAudioPlayer?
@@ -28,16 +28,17 @@ struct CaseOpening: View {
     var body: some View {
         ZStack {
             
-//            Background(circleBackgroundBlur: 5)
-//                .zIndex(-1)
+            Background()
+                .zIndex(-1)
             
             ContainerTitleAndImage(caseName: "Dreams & Nightmares", imageName: "DreamsCase", blurRadius: 6, width: 800, height: 280)
             
-            VStack {
-                closeButton
+            VStack() {
                 gunSpinAnimation
                 Spacer()
+                
             }
+            
         }
         .onAppear {
             isAnimated.toggle()
@@ -47,50 +48,64 @@ struct CaseOpening: View {
     }
 }
 
+//struct CaseOpening_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CaseOpening()
+//            .previewInterfaceOrientation(.landscapeLeft)
+//
+//    }
+//}
+
 // MARK: - VIEWS
 
 extension CaseOpening {
     var gunSpinAnimation: some View {
-        HStack(alignment: .top, spacing: 5) {
-            ForEach(Gun.gunInventory) { num in
-                GeometryReader { proxy in
-                    let scale = getScale(proxy: proxy)
-                    
-                    VStack(spacing: 8) {
-                        Spacer(minLength: 120)
-                        ZStack {
-                            VStack(spacing: 0) {
-                                Image(num.imageName)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .background(RadialGradient(gradient: Gradient(colors: [Color.white, Color.black]),
-                                                               center: .bottom,
-                                                               startRadius: 1,
-                                                               endRadius: 190 ))
-                                    .frame(width: 150,height: 100)
-                                    .clipped()
-                                Rectangle()
-                                    .fill(num.rarityColor)
-                                    .frame(width: 150, height: 7)
+        ZStack {
+            HStack(alignment: .top, spacing: 5) {
+                ForEach(Gun.gunInventory) { num in
+                    GeometryReader { proxy in
+                        let scale = getScale(proxy: proxy)
+                        
+                        VStack(spacing: 8) {
+                            Spacer(minLength: 120)
+                            ZStack {
+                                VStack(spacing: 0) {
+                                    Image(num.imageName)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .background(
+                                            RadialGradient(
+                                                gradient: Gradient(colors: [Color.white, Color.black]),
+                                                center: .bottom,
+                                                startRadius: 1,
+                                                endRadius: 190 ))
+                                        .frame(width: 150,height: 100)
+                                        .clipped()
+                                    Rectangle()
+                                        .fill(num.rarityColor)
+                                        .frame(width: 150, height: 7)
+                                }
+                                
+                                    
                             }
                         }
+                        .scaleEffect(.init(width: scale, height: scale))
+                        .offset(x: isAnimated ? -80 : 10000)
+                        .animation(.easeOut(duration: 6), value: isAnimated)
+                        .padding(.vertical)
                     }
-                    .scaleEffect(.init(width: scale, height: scale))
-                    .offset(x: isAnimated ? 10 : 10000)
-                    .animation(.easeOut(duration: 6), value: isAnimated)
-                    .padding(.vertical)
+                    .frame(width: 150, height: 180)
+                    .padding(.horizontal, 15)
+                    .padding(.vertical, 15)
                 }
-                .frame(width: 150, height: 180)
-                .padding(.horizontal, 15)
-                .padding(.vertical, 15)
+                Spacer()
+                    .frame(width: 16)
             }
-            Spacer()
-                .frame(width: 16)
         }
     }
     var closeButton: some View {
         Button {
-//            showOpening.toggle()
+            showOpening.toggle()
         } label: {
             Text("CLOSE")
                 .buttonStyle(.bordered)
@@ -140,10 +155,3 @@ extension CaseOpening {
     }
 }
 
-
-struct CaseOpening_Previews: PreviewProvider {
-    static var previews: some View {
-        CaseOpening()
-            .previewInterfaceOrientation(.landscapeLeft)
-    }
-}

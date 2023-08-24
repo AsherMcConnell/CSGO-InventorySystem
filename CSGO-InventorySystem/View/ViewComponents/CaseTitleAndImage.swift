@@ -32,7 +32,8 @@ struct ContainerTitleAndImage: View {
                 Image(uiImage: .init(systemName: "info.circle.fill")!)
                     .resizable()
                     .frame(width: 10, height: 10)
-                
+                    .colorInvert()
+                   
                 Text("This Container can only be opened once")
                     .font(.system(size: 10))
                     .padding(.top, 3)

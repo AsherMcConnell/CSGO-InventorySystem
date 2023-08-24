@@ -18,7 +18,7 @@ class InventoryViewModel: ObservableObject {
         getWeapons()
     }
     
-    // CREATE
+    // Create New Weapon to add to inventory
     func createWeapon(name: String) {
         let context = CoreDataManger.instance.context
         let newWeapon = WeaponEntity(context: context)
@@ -30,7 +30,7 @@ class InventoryViewModel: ObservableObject {
         getWeapons()
     }
 
-    // RETRIEVE (GET)
+    // Get List of Weapons
     func getWeapons() {
         do {
             let request = WeaponEntity.fetchRequest()
