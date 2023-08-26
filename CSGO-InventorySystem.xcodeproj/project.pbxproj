@@ -18,6 +18,7 @@
 		FA2C00F92A96C3C400664990 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA2C00F82A96C3C400664990 /* Preview Assets.xcassets */; };
 		FA2C01042A96E82900664990 /* CasePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C01032A96E82900664990 /* CasePreview.swift */; };
 		FA2C01062A96F4D700664990 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C01052A96F4D700664990 /* CoreDataManager.swift */; };
+		FA6BB7F82A980FB200CF0AE2 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BB7F72A980FB200CF0AE2 /* Utilities.swift */; };
 		FAA5D4F32A97EC1F002796AB /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5D4F22A97EC1F002796AB /* Background.swift */; };
 		FAA5D4F52A97F914002796AB /* Gun.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5D4F42A97F914002796AB /* Gun.swift */; };
 		FAA5D4F72A980516002796AB /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5D4F62A980516002796AB /* Inventory.swift */; };
@@ -36,6 +37,7 @@
 		FA2C00F82A96C3C400664990 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FA2C01032A96E82900664990 /* CasePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasePreview.swift; sourceTree = "<group>"; };
 		FA2C01052A96F4D700664990 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		FA6BB7F72A980FB200CF0AE2 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		FAA5D4F22A97EC1F002796AB /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		FAA5D4F42A97F914002796AB /* Gun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gun.swift; sourceTree = "<group>"; };
 		FAA5D4F62A980516002796AB /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				FA1A1E922A96FB5000DB074E /* InventoryViewModel.swift */,
+				FA6BB7F72A980FB200CF0AE2 /* Utilities.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				FA2C01062A96F4D700664990 /* CoreDataManager.swift in Sources */,
 				FA1A1E932A96FB5000DB074E /* InventoryViewModel.swift in Sources */,
 				FA2C01042A96E82900664990 /* CasePreview.swift in Sources */,
+				FA6BB7F82A980FB200CF0AE2 /* Utilities.swift in Sources */,
 				FA1A1E8E2A96F64E00DB074E /* WeaponDataContainer.xcdatamodeld in Sources */,
 				FA1A1E982A97E85D00DB074E /* CustomButton.swift in Sources */,
 				FA1A1E9A2A97E96D00DB074E /* CaseOpening.swift in Sources */,

@@ -21,6 +21,9 @@ struct CasePreview: View {
                 CaseOpening(showOpening: $showOpening)
             }
         }
+        .onAppear {
+            DatabaseUtils.whereIsMySQLite()
+        }
     }
 }
 
