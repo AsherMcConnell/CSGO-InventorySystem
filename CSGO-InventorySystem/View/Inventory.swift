@@ -16,17 +16,19 @@ struct Inventory: View {
         GridItem(.flexible(), spacing: -60, alignment: nil),
         GridItem(.flexible(), spacing: -60, alignment: nil),
         GridItem(.flexible(), spacing: -60, alignment: nil),
-//        GridItem(.flexible(), spacing: 6, alignment: nil),
     ]
     
     var body: some View {
-        ZStack {
-            Background()
-            sideBar
-            gridBackground
-            topBar
+        NavigationView {
+            ZStack {
+                Background()
+                sideBar
+                gridBackground
+                topBar
             
+            }
         }
+        .environmentObject(csgoVM)
     }
 }
 
@@ -53,15 +55,24 @@ extension Inventory {
     }
     
     var topBar: some View {
-        VStack {
-            Rectangle()
-                .frame(width: 830, height: 100)
-                .foregroundColor(.black)
-                .opacity(0.1)
-                .padding(.leading, 35)
-                
-            Spacer()
-        }
+            VStack {
+                ZStack {
+                    Rectangle()
+                        .frame(width: 830, height: 100)
+                        .foregroundColor(.black)
+                        .opacity(0.1)
+                        .padding(.leading, 35)
+                    
+                    
+                    NavigationLink {
+                        CasePreview()
+                    } label: {
+                        Text("SPIN TO WIN")
+                            .font(.system(size: 50))
+                    }
+                }
+                Spacer()
+            }
     }
     
     var gridBackground: some View {
@@ -82,33 +93,43 @@ extension Inventory {
         ZStack {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 5) {
-                    ForEach(Gun.gunsForDreamsNightmaresCaseScroll) { gun in
-                        VStack {
-                            HStack(spacing: -1) {
-                                Rectangle()
-                                    .fill(gun.rarityColor)
-                                    .frame(width: 6, height: 90)
-                                Image(gun.imageName)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .background(
-                                        RadialGradient(
-                                            gradient: Gradient(colors: [Color.white, Color.black]),
-                                            center: .bottom,
-                                            startRadius: 1,
-                                            endRadius: 190 ))
-                                    .frame(width: 120,height: 90)
-                                    .clipped()
-                            }
-                            Text(gun.title)
-                                .font(.system(size: 10, weight: .semibold))
-                                .multilineTextAlignment(.center)
-                                .frame(width: 100, height:30)
-                                .foregroundColor(.white)
-                        }
+                    ForEach(csgoVM.weapons) { weapon in
+                        gunList(weapon: weapon)
                     }
 
                 }
+            }
+        }
+    }
+    
+    func gunList(weapon: WeaponEntity) -> some View {
+        VStack {
+            HStack(spacing: -1) {
+                if let colorRarity = weapon.colorRarity {
+                    Rectangle()
+                        .fill(Color(colorRarity))
+                        .frame(width: 6, height: 90)
+                }
+                if let image = weapon.imageName {
+                    Image(image)
+                        .resizable()
+                        .scaledToFill()
+                        .background(
+                            RadialGradient(
+                                gradient: Gradient(colors: [Color.white, Color.black]),
+                                center: .bottom,
+                                startRadius: 1,
+                                endRadius: 190 ))
+                        .frame(width: 120,height: 90)
+                        .clipped()
+                }
+            }
+            if let name = weapon.name {
+                Text(name)
+                    .font(.system(size: 10, weight: .semibold))
+                    .multilineTextAlignment(.center)
+                    .frame(width: 100, height:30)
+                    .foregroundColor(.white)
             }
         }
     }

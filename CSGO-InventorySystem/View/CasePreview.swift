@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CasePreview: View {
     
+    @EnvironmentObject var csgoVM: InventoryViewModel
+    
     @State var showOpening: Bool = false
     
     var body: some View {
@@ -56,7 +58,7 @@ extension CasePreview {
                         showOpening.toggle()
                         Gun.gunInventory.shuffle()
                         Gun.gunInventory.remove(at: 83)
-                        Gun.gunInventory.insert(Gun(id: 17, title: "KNIFE", imageName: "KNIFE", rarityColor: Color.yellow), at: 83)
+                        Gun.gunInventory.insert(weaponCreation(), at: 83)
                     }
                     .padding(.trailing, 50)
                 }
@@ -81,7 +83,7 @@ extension CasePreview {
                         VStack {
                             HStack(spacing: -1) {
                                 Rectangle()
-                                    .fill(num.rarityColor)
+                                    .fill(Color(num.rarityColor))
                                     .frame(width: 6, height: 90)
                                 Image(num.imageName)
                                     .resizable()
@@ -118,6 +120,14 @@ extension CasePreview {
 // MARK: - FUNCS
 
 extension CasePreview {
+    func weaponCreation() -> Gun {
+        let weapon = Gun.gunsForDreamsNightmaresCaseScroll.randomElement()
+        csgoVM.createWeapon(name: weapon!.title, imageName: weapon!.imageName, colorRarity: weapon!.rarityColor)
+        
+        return weapon!
+    }
+    
+    
     func getScale(proxy: GeometryProxy) -> CGFloat {
         let midpoint: CGFloat = UIScreen.main.bounds.width / 2
         

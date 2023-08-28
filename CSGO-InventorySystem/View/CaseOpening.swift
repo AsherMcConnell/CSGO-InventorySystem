@@ -82,7 +82,7 @@ extension CaseOpening {
                                         .frame(width: 150,height: 100)
                                         .clipped()
                                     Rectangle()
-                                        .fill(num.rarityColor)
+                                        .fill(Color(num.rarityColor))
                                         .frame(width: 150, height: 7)
                                 }
                                 
@@ -90,7 +90,7 @@ extension CaseOpening {
                             }
                         }
                         .scaleEffect(.init(width: scale, height: scale))
-                        .offset(x: isAnimated ? -80 : 10000)
+                        .offset(x: isAnimated ? 10 : 10000)
                         .animation(.easeOut(duration: 6), value: isAnimated)
                         .padding(.vertical)
                     }

@@ -19,11 +19,13 @@ class InventoryViewModel: ObservableObject {
     }
     
     // Create New Weapon to add to inventory
-    func createWeapon(name: String) {
+    func createWeapon(name: String, imageName: String, colorRarity: String) {
         let context = CoreDataManger.instance.context
         let newWeapon = WeaponEntity(context: context)
         
         newWeapon.name = name
+        newWeapon.imageName = imageName
+        newWeapon.colorRarity = colorRarity
         newWeapon.id = UUID()
         
         CoreDataManger.instance.saveData()

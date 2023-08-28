@@ -3,6 +3,7 @@
     <entity name="WeaponEntity" representedClassName="WeaponEntity" syncable="YES" codeGenerationType="class">
         <attribute name="colorRarity" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imageName" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
 </model>
