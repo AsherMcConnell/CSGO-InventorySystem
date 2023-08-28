@@ -7,18 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA1A1E8E2A96F64E00DB074E /* WeaponDataContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1E8C2A96F64E00DB074E /* WeaponDataContainer.xcdatamodeld */; };
+		FA1A1E912A96FA1100DB074E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1E902A96FA1100DB074E /* SoundManager.swift */; };
+		FA1A1E932A96FB5000DB074E /* InventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1E922A96FB5000DB074E /* InventoryViewModel.swift */; };
+		FA1A1E952A97E2A900DB074E /* CaseTitleAndImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1E942A97E2A900DB074E /* CaseTitleAndImage.swift */; };
+		FA1A1E982A97E85D00DB074E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1E972A97E85D00DB074E /* CustomButton.swift */; };
+		FA1A1E9A2A97E96D00DB074E /* CaseOpening.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1E992A97E96D00DB074E /* CaseOpening.swift */; };
 		FA2C00F22A96C3C300664990 /* CSGO_InventorySystemApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C00F12A96C3C300664990 /* CSGO_InventorySystemApp.swift */; };
-		FA2C00F42A96C3C300664990 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C00F32A96C3C300664990 /* ContentView.swift */; };
 		FA2C00F62A96C3C400664990 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA2C00F52A96C3C400664990 /* Assets.xcassets */; };
 		FA2C00F92A96C3C400664990 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA2C00F82A96C3C400664990 /* Preview Assets.xcassets */; };
+		FA2C01042A96E82900664990 /* CasePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C01032A96E82900664990 /* CasePreview.swift */; };
+		FA2C01062A96F4D700664990 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C01052A96F4D700664990 /* CoreDataManager.swift */; };
+		FA6BB7F82A980FB200CF0AE2 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BB7F72A980FB200CF0AE2 /* Utilities.swift */; };
+		FA9184D72A9D3053003FD5BE /* NavigationRouter in Frameworks */ = {isa = PBXBuildFile; productRef = FA9184D62A9D3053003FD5BE /* NavigationRouter */; };
+		FAA5D4F32A97EC1F002796AB /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5D4F22A97EC1F002796AB /* Background.swift */; };
+		FAA5D4F52A97F914002796AB /* Gun.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5D4F42A97F914002796AB /* Gun.swift */; };
+		FAA5D4F72A980516002796AB /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5D4F62A980516002796AB /* Inventory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA1A1E8D2A96F64E00DB074E /* WeaponDataContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeaponDataContainer.xcdatamodel; sourceTree = "<group>"; };
+		FA1A1E902A96FA1100DB074E /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		FA1A1E922A96FB5000DB074E /* InventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewModel.swift; sourceTree = "<group>"; };
+		FA1A1E942A97E2A900DB074E /* CaseTitleAndImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseTitleAndImage.swift; sourceTree = "<group>"; };
+		FA1A1E972A97E85D00DB074E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		FA1A1E992A97E96D00DB074E /* CaseOpening.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseOpening.swift; sourceTree = "<group>"; };
 		FA2C00EE2A96C3C300664990 /* CSGO-InventorySystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CSGO-InventorySystem.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2C00F12A96C3C300664990 /* CSGO_InventorySystemApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSGO_InventorySystemApp.swift; sourceTree = "<group>"; };
-		FA2C00F32A96C3C300664990 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FA2C00F52A96C3C400664990 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA2C00F82A96C3C400664990 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FA2C01032A96E82900664990 /* CasePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasePreview.swift; sourceTree = "<group>"; };
+		FA2C01052A96F4D700664990 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		FA6BB7F72A980FB200CF0AE2 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		FAA5D4F22A97EC1F002796AB /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		FAA5D4F42A97F914002796AB /* Gun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gun.swift; sourceTree = "<group>"; };
+		FAA5D4F62A980516002796AB /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,12 +49,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9184D72A9D3053003FD5BE /* NavigationRouter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA1A1E8B2A96F61600DB074E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				FA2C01052A96F4D700664990 /* CoreDataManager.swift */,
+				FA1A1E8C2A96F64E00DB074E /* WeaponDataContainer.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		FA1A1E8F2A96FA0200DB074E /* SoundManager */ = {
+			isa = PBXGroup;
+			children = (
+				FA1A1E902A96FA1100DB074E /* SoundManager.swift */,
+			);
+			path = SoundManager;
+			sourceTree = "<group>";
+		};
+		FA1A1E962A97E84000DB074E /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				FA1A1E942A97E2A900DB074E /* CaseTitleAndImage.swift */,
+				FA1A1E972A97E85D00DB074E /* CustomButton.swift */,
+				FAA5D4F22A97EC1F002796AB /* Background.swift */,
+				FAA5D4F42A97F914002796AB /* Gun.swift */,
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
 		FA2C00E52A96C3C300664990 = {
 			isa = PBXGroup;
 			children = (
@@ -51,9 +103,12 @@
 		FA2C00F02A96C3C300664990 /* CSGO-InventorySystem */ = {
 			isa = PBXGroup;
 			children = (
-				FA2C00F12A96C3C300664990 /* CSGO_InventorySystemApp.swift */,
-				FA2C00F32A96C3C300664990 /* ContentView.swift */,
+				FA2C01012A96E77D00664990 /* Managers */,
+				FA2C00FF2A96E76B00664990 /* Model */,
+				FA2C01002A96E77200664990 /* ViewModel */,
+				FA2C01022A96E79300664990 /* View */,
 				FA2C00F52A96C3C400664990 /* Assets.xcassets */,
+				FA2C00F12A96C3C300664990 /* CSGO_InventorySystemApp.swift */,
 				FA2C00F72A96C3C400664990 /* Preview Content */,
 			);
 			path = "CSGO-InventorySystem";
@@ -65,6 +120,42 @@
 				FA2C00F82A96C3C400664990 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FA2C00FF2A96E76B00664990 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA2C01002A96E77200664990 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA1A1E922A96FB5000DB074E /* InventoryViewModel.swift */,
+				FA6BB7F72A980FB200CF0AE2 /* Utilities.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FA2C01012A96E77D00664990 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				FA1A1E8F2A96FA0200DB074E /* SoundManager */,
+				FA1A1E8B2A96F61600DB074E /* CoreData */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		FA2C01022A96E79300664990 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FAA5D4F62A980516002796AB /* Inventory.swift */,
+				FA2C01032A96E82900664990 /* CasePreview.swift */,
+				FA1A1E992A97E96D00DB074E /* CaseOpening.swift */,
+				FA1A1E962A97E84000DB074E /* ViewComponents */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +174,9 @@
 			dependencies = (
 			);
 			name = "CSGO-InventorySystem";
+			packageProductDependencies = (
+				FA9184D62A9D3053003FD5BE /* NavigationRouter */,
+			);
 			productName = "CSGO-InventorySystem";
 			productReference = FA2C00EE2A96C3C300664990 /* CSGO-InventorySystem.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +205,9 @@
 				Base,
 			);
 			mainGroup = FA2C00E52A96C3C300664990;
+			packageReferences = (
+				FA9184D52A9D3053003FD5BE /* XCRemoteSwiftPackageReference "SwiftUI-Navigation-Router" */,
+			);
 			productRefGroup = FA2C00EF2A96C3C300664990 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +234,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA2C00F42A96C3C300664990 /* ContentView.swift in Sources */,
+				FAA5D4F72A980516002796AB /* Inventory.swift in Sources */,
+				FA2C01062A96F4D700664990 /* CoreDataManager.swift in Sources */,
+				FA1A1E932A96FB5000DB074E /* InventoryViewModel.swift in Sources */,
+				FA2C01042A96E82900664990 /* CasePreview.swift in Sources */,
+				FA6BB7F82A980FB200CF0AE2 /* Utilities.swift in Sources */,
+				FA1A1E8E2A96F64E00DB074E /* WeaponDataContainer.xcdatamodeld in Sources */,
+				FA1A1E982A97E85D00DB074E /* CustomButton.swift in Sources */,
+				FA1A1E9A2A97E96D00DB074E /* CaseOpening.swift in Sources */,
+				FA1A1E952A97E2A900DB074E /* CaseTitleAndImage.swift in Sources */,
 				FA2C00F22A96C3C300664990 /* CSGO_InventorySystemApp.swift in Sources */,
+				FAA5D4F52A97F914002796AB /* Gun.swift in Sources */,
+				FA1A1E912A96FA1100DB074E /* SoundManager.swift in Sources */,
+				FAA5D4F32A97EC1F002796AB /* Background.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,8 +381,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeLeft;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,8 +410,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeLeft;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,6 +447,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FA9184D52A9D3053003FD5BE /* XCRemoteSwiftPackageReference "SwiftUI-Navigation-Router" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Lukas-Simonson/SwiftUI-Navigation-Router";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FA9184D62A9D3053003FD5BE /* NavigationRouter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA9184D52A9D3053003FD5BE /* XCRemoteSwiftPackageReference "SwiftUI-Navigation-Router" */;
+			productName = NavigationRouter;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		FA1A1E8C2A96F64E00DB074E /* WeaponDataContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FA1A1E8D2A96F64E00DB074E /* WeaponDataContainer.xcdatamodel */,
+			);
+			currentVersion = FA1A1E8D2A96F64E00DB074E /* WeaponDataContainer.xcdatamodel */;
+			path = WeaponDataContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FA2C00E62A96C3C300664990 /* Project object */;
 }
