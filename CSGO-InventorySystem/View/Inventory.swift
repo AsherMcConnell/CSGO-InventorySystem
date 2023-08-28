@@ -6,10 +6,16 @@
 //
 
 import SwiftUI
+import NavigationRouter
 
 struct Inventory: View {
     
-    @StateObject var csgoVM = InventoryViewModel()
+    @EnvironmentObject var csgoVM: InventoryViewModel
+    
+    @NavRouter var navRouter
+    @State var showOpening: Bool = false
+    
+    @State var blur: CGFloat = 0
     
     let columns: [GridItem] = [
         GridItem(.flexible(), spacing: -60, alignment: nil),
@@ -19,16 +25,18 @@ struct Inventory: View {
     ]
     
     var body: some View {
-        NavigationView {
+        ZStack {
             ZStack {
-                Background()
-                sideBar
-                gridBackground
-                topBar
-            
+                    Background()
+                    sideBar
+                    gridBackground
+                    topBar
+                }
+            .blur(radius: blur)
+            if showOpening {
+                openedGunView
             }
         }
-        .environmentObject(csgoVM)
     }
 }
 
@@ -63,16 +71,44 @@ extension Inventory {
                         .opacity(0.1)
                         .padding(.leading, 35)
                     
-                    
-                    NavigationLink {
-                        CasePreview()
-                    } label: {
-                        Text("SPIN TO WIN")
-                            .font(.system(size: 50))
+                    CustomButton(buttonTitle: "Open Case", buttonColor: .green, buttonFont: 40) {
+                        navRouter.push(CasePreview())
                     }
+                
                 }
                 Spacer()
             }
+    }
+    var openedGunView: some View {
+            ZStack {
+                RoundedRectangle(cornerRadius: 20)
+                    .foregroundColor(.black)
+                    .opacity(0.3)
+                    .padding(.leading, 35)
+                VStack {
+                    VStack {
+                        Text(csgoVM.currentWeapon!.title)
+                            .font(.system(size: 30, weight: .semibold))
+                            .frame(width: 400, height:30)
+                            .foregroundColor(.white)
+                            Rectangle()
+                                .fill(Color(csgoVM.currentWeapon!.rarityColor))
+                                .frame(width: 400, height: 6)
+                            Image(csgoVM.currentWeapon!.imageName)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 200, height: 200)
+                    }
+                    
+                    Spacer()
+                    CustomButton(buttonTitle: "CLOSE", buttonColor: .green, buttonFont: 20) {
+                        blur = 0
+                        showOpening = false
+                    }
+
+                }
+            }
+            .frame(width: 630, height: 300)
     }
     
     var gridBackground: some View {
@@ -95,7 +131,15 @@ extension Inventory {
                 LazyVGrid(columns: columns, spacing: 5) {
                     ForEach(csgoVM.weapons) { weapon in
                         gunList(weapon: weapon)
+                            .onTapGesture {
+                                csgoVM.currentWeapon?.imageName = weapon.imageName!
+                                csgoVM.currentWeapon?.title = weapon.name!
+                                csgoVM.currentWeapon?.rarityColor = weapon.colorRarity!
+                                showOpening = true
+                                blur = 5
+                            }
                     }
+                    
 
                 }
             }

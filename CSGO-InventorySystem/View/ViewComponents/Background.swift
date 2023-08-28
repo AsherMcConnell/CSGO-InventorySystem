@@ -18,15 +18,16 @@ struct Background: View {
                 .blur(radius: 20)
             ZStack {
                 Circle()
-                    .stroke(Color("circleColor"), style: StrokeStyle(lineWidth: 70))
+                    .stroke(Color.black, style: StrokeStyle(lineWidth: 70))
                     .frame(width: 200, height: 200)
                 Circle()
                     .trim(from: 0.0, to: 0.5)
-                    .fill(Color("circleColor"))
+                    .fill(Color.black)
                     .frame(width: 80, height: 80)
             }
             .zIndex(10)
-            .blur(radius: 0)
+            .blur(radius: 5)
+            .opacity(0.3)
         }
     }
 }

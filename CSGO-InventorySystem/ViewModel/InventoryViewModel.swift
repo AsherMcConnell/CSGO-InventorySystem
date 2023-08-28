@@ -12,7 +12,7 @@ class InventoryViewModel: ObservableObject {
     
     @Published var weapons: [WeaponEntity] = []
     
-    @Published var currentWeapon: WeaponEntity? = nil
+    @Published var currentWeapon: Gun?
     
     init() {
         getWeapons()

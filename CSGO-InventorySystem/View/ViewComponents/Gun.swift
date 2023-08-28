@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct Gun: Identifiable {
-    
+        
     var id: Int
     var title: String
     var imageName: String

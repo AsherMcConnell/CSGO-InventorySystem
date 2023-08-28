@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import NavigationRouter
 
 struct CasePreview: View {
     
     @EnvironmentObject var csgoVM: InventoryViewModel
+    @NavRouter var navRouter
     
     @State var showOpening: Bool = false
     
@@ -21,6 +23,17 @@ struct CasePreview: View {
             midBarWithButton
             if showOpening {
                 CaseOpening(showOpening: $showOpening)
+            }
+            VStack {
+                HStack {
+                    CustomButton(buttonTitle: "Back", buttonColor: .green, buttonFont: 20) {
+                        navRouter.popToRoot()
+                    }
+                    .padding(.top, 25)
+                    .padding(.leading, 25)
+                    Spacer()
+                }
+                Spacer()
             }
         }
         .onAppear {
@@ -46,19 +59,23 @@ extension CasePreview {
             Spacer()
             VStack(spacing: -2) {
                 HStack {
+                    
+                    
+                    
                     Text("Items that might be in this container:")
                         .font(.system(size: 12))
                         .foregroundColor(Color.white)
                         .bold()
                         .padding(.leading, 50)
                     
+                    
+                    
                     Spacer()
                     
                     CustomButton(buttonTitle: "UNLOCK CONTAINER", buttonColor: .green, buttonFont: 14) {
                         showOpening.toggle()
                         Gun.gunInventory.shuffle()
-                        Gun.gunInventory.remove(at: 83)
-                        Gun.gunInventory.insert(weaponCreation(), at: 83)
+                        Gun.gunInventory.insert(weaponCreation(), at: 89)
                     }
                     .padding(.trailing, 50)
                 }
@@ -71,7 +88,7 @@ extension CasePreview {
             .padding(.bottom, 30)
         }
     }
-
+    
     var weaponScroll: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             Spacer()
@@ -121,9 +138,9 @@ extension CasePreview {
 
 extension CasePreview {
     func weaponCreation() -> Gun {
-        let weapon = Gun.gunsForDreamsNightmaresCaseScroll.randomElement()
+        let weapon = Gun.gunInventory.randomElement()
         csgoVM.createWeapon(name: weapon!.title, imageName: weapon!.imageName, colorRarity: weapon!.rarityColor)
-        
+        csgoVM.currentWeapon = weapon
         return weapon!
     }
     

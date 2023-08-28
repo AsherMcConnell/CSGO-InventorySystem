@@ -19,6 +19,7 @@
 		FA2C01042A96E82900664990 /* CasePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C01032A96E82900664990 /* CasePreview.swift */; };
 		FA2C01062A96F4D700664990 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2C01052A96F4D700664990 /* CoreDataManager.swift */; };
 		FA6BB7F82A980FB200CF0AE2 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BB7F72A980FB200CF0AE2 /* Utilities.swift */; };
+		FA9184D72A9D3053003FD5BE /* NavigationRouter in Frameworks */ = {isa = PBXBuildFile; productRef = FA9184D62A9D3053003FD5BE /* NavigationRouter */; };
 		FAA5D4F32A97EC1F002796AB /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5D4F22A97EC1F002796AB /* Background.swift */; };
 		FAA5D4F52A97F914002796AB /* Gun.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5D4F42A97F914002796AB /* Gun.swift */; };
 		FAA5D4F72A980516002796AB /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5D4F62A980516002796AB /* Inventory.swift */; };
@@ -48,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9184D72A9D3053003FD5BE /* NavigationRouter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +174,9 @@
 			dependencies = (
 			);
 			name = "CSGO-InventorySystem";
+			packageProductDependencies = (
+				FA9184D62A9D3053003FD5BE /* NavigationRouter */,
+			);
 			productName = "CSGO-InventorySystem";
 			productReference = FA2C00EE2A96C3C300664990 /* CSGO-InventorySystem.app */;
 			productType = "com.apple.product-type.application";
@@ -200,6 +205,9 @@
 				Base,
 			);
 			mainGroup = FA2C00E52A96C3C300664990;
+			packageReferences = (
+				FA9184D52A9D3053003FD5BE /* XCRemoteSwiftPackageReference "SwiftUI-Navigation-Router" */,
+			);
 			productRefGroup = FA2C00EF2A96C3C300664990 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -439,6 +447,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FA9184D52A9D3053003FD5BE /* XCRemoteSwiftPackageReference "SwiftUI-Navigation-Router" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Lukas-Simonson/SwiftUI-Navigation-Router";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FA9184D62A9D3053003FD5BE /* NavigationRouter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA9184D52A9D3053003FD5BE /* XCRemoteSwiftPackageReference "SwiftUI-Navigation-Router" */;
+			productName = NavigationRouter;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FA1A1E8C2A96F64E00DB074E /* WeaponDataContainer.xcdatamodeld */ = {

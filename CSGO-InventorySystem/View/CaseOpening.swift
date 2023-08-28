@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVKit
+import NavigationRouter
 
 struct CaseOpening: View {
     
@@ -14,8 +15,15 @@ struct CaseOpening: View {
     @Binding var showOpening: Bool
     @State var isAnimated: Bool = false
     
+    @NavRouter var navRouter
+    
+    @EnvironmentObject var csgoVM: InventoryViewModel
+    
     var audio: AVAudioPlayer?
     @State var isShuffled: Bool = false
+    @State var showOpenedGun = false
+    
+    @State var blur: CGFloat = 0
     
     let gradient = LinearGradient(
     gradient: Gradient(stops: [
@@ -27,24 +35,39 @@ struct CaseOpening: View {
     
     var body: some View {
         ZStack {
-            
-            Background()
-                .zIndex(-1)
-            
-            ContainerTitleAndImage(caseName: "Dreams & Nightmares", imageName: "DreamsCase", blurRadius: 6, width: 800, height: 280)
-            
-            VStack() {
-                gunSpinAnimation
-                Spacer()
+            ZStack {
+                
+                Background()
+                    .zIndex(-1)
+                
+                ContainerTitleAndImage(caseName: "Dreams & Nightmares", imageName: "DreamsCase", blurRadius: 6, width: 800, height: 280)
+                
+                VStack() {
+                    gunSpinAnimation
+                    Spacer()
+                    
+                }
+                
                 
             }
+            .blur(radius: blur)
+            
+            if showOpenedGun {
+                openedGunView
+            }
+            
             
         }
+        .navigationBarBackButtonHidden(true)
         .onAppear {
             isAnimated.toggle()
             SoundManager.instance.playSound(sound: .caseOpenSound)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 6.25) {
+                showOpenedGun = true
+                blur = 5
+            }
         }
-        .zIndex(100)
+    .zIndex(100)
     }
 }
 
@@ -59,6 +82,39 @@ struct CaseOpening: View {
 // MARK: - VIEWS
 
 extension CaseOpening {
+    var openedGunView: some View {
+            ZStack {
+                RoundedRectangle(cornerRadius: 20)
+                    .foregroundColor(.black)
+                    .opacity(0.3)
+                    .padding(.leading, 35)
+                VStack {
+                    VStack {
+                        Text(csgoVM.currentWeapon!.title)
+                            .font(.system(size: 30, weight: .semibold))
+                            .frame(width: 400, height:30)
+                            .foregroundColor(.white)
+                            Rectangle()
+                                .fill(Color(csgoVM.currentWeapon!.rarityColor))
+                                .frame(width: 400, height: 6)
+                            Image(csgoVM.currentWeapon!.imageName)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 200, height: 200)
+                    }
+                    
+                    Spacer()
+                    CustomButton(buttonTitle: "CLOSE", buttonColor: .green, buttonFont: 20) {
+                        showOpening.toggle()
+                        Gun.gunInventory.remove(at: 89)
+                        blur = 0
+                        navRouter.popToRoot()
+                    }
+
+                }
+            }
+            .frame(width: 630, height: 300)
+    }
     var gunSpinAnimation: some View {
         ZStack {
             HStack(alignment: .top, spacing: 5) {
@@ -90,7 +146,7 @@ extension CaseOpening {
                             }
                         }
                         .scaleEffect(.init(width: scale, height: scale))
-                        .offset(x: isAnimated ? 10 : 10000)
+                        .offset(x: isAnimated ? -80 : 10000)
                         .animation(.easeOut(duration: 6), value: isAnimated)
                         .padding(.vertical)
                     }

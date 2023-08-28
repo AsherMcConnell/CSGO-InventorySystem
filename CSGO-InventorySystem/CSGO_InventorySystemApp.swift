@@ -6,12 +6,22 @@
 //
 
 import SwiftUI
+import NavigationRouter
 
 @main
 struct CSGO_InventorySystemApp: App {
+    
+    @NavRouter var navRouter
+    @StateObject var csgoVM = InventoryViewModel()
+
     var body: some Scene {
         WindowGroup {
-           Inventory()
+            NavigationRouter {
+                Inventory()
+                    .navigatesTo(CasePreview.self, usesBackButton: false, usesBackSwipe: false)
+            }
+            .environmentObject(csgoVM)
         }
+        
     }
 }
