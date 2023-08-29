@@ -15,6 +15,8 @@ struct Inventory: View {
     @NavRouter var navRouter
     @State var showOpening: Bool = false
     
+    @State var nickNameText = ""
+    
     @State var blur: CGFloat = 0
     
     let columns: [GridItem] = [
@@ -94,6 +96,17 @@ extension Inventory {
                             Rectangle()
                                 .fill(Color(csgoVM.currentWeapon!.rarityColor))
                                 .frame(width: 400, height: 6)
+                        HStack(spacing:0 ) {
+                            Text("NickName:")
+                                .font(.system(size: 25, weight: .semibold))
+                                .frame(width: 200, height:30)
+                                .foregroundColor(.white)
+                            TextField("", text: $nickNameText)
+                                .font(.system(size: 25, weight: .semibold))
+                                .frame(width: 400, height:30)
+                                .foregroundColor(.red)
+                        }
+                        .offset(x: 120)
                             Image(csgoVM.currentWeapon!.imageName)
                                 .resizable()
                                 .scaledToFill()
@@ -101,9 +114,19 @@ extension Inventory {
                     }
                     
                     Spacer()
-                    CustomButton(buttonTitle: "CLOSE", buttonColor: .green, buttonFont: 20) {
-                        blur = 0
-                        showOpening = false
+                    HStack {
+                        CustomButton(buttonTitle: "SELL", buttonColor: .green, buttonFont: 20) {
+                            blur = 0
+                            showOpening = false
+                            csgoVM.sellWeapon()
+                            csgoVM.editWeaponName(name: nickNameText)
+                            
+                        }
+                        CustomButton(buttonTitle: "CLOSE", buttonColor: .green, buttonFont: 20) {
+                            blur = 0
+                            showOpening = false
+                            csgoVM.editWeaponName(name: nickNameText)
+                        }
                     }
 
                 }
@@ -132,11 +155,17 @@ extension Inventory {
                     ForEach(csgoVM.weapons) { weapon in
                         gunList(weapon: weapon)
                             .onTapGesture {
+                                csgoVM.currentWeaponEntity = weapon
+                                if let weaponNickname = csgoVM.currentWeaponEntity?.nickname {
+                                    nickNameText = weaponNickname
+                                }
+                                csgoVM.currentWeapon = Gun(id: 0, title: "", imageName: "", rarityColor: "")
                                 csgoVM.currentWeapon?.imageName = weapon.imageName!
                                 csgoVM.currentWeapon?.title = weapon.name!
                                 csgoVM.currentWeapon?.rarityColor = weapon.colorRarity!
                                 showOpening = true
                                 blur = 5
+                                
                             }
                     }
                     
