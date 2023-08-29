@@ -13,6 +13,7 @@ class InventoryViewModel: ObservableObject {
     @Published var weapons: [WeaponEntity] = []
     
     @Published var currentWeapon: Gun?
+    @Published var currentWeaponEntity: WeaponEntity?
     
     init() {
         getWeapons()
@@ -24,6 +25,7 @@ class InventoryViewModel: ObservableObject {
         let newWeapon = WeaponEntity(context: context)
         
         newWeapon.name = name
+        newWeapon.nickname = "Nickname"
         newWeapon.imageName = imageName
         newWeapon.colorRarity = colorRarity
         newWeapon.id = UUID()
@@ -43,5 +45,22 @@ class InventoryViewModel: ObservableObject {
         } catch let error {
             print("Error fetching weapons: \(error)")
         }
+    }
+    
+    func sellWeapon() {
+        if let currentWeaponEntity {
+            CoreDataManger.instance.context.delete(currentWeaponEntity)
+            CoreDataManger.instance.saveData()
+            getWeapons()
+        }
+        currentWeaponEntity = nil
+    }
+    
+    func editWeaponName(name: String) {
+        if let currentWeaponEntity {
+            currentWeaponEntity.nickname = name
+            CoreDataManger.instance.saveData()
+        }
+        currentWeaponEntity = nil
     }
 }
