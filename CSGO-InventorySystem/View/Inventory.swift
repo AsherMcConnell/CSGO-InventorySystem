@@ -11,12 +11,10 @@ import NavigationRouter
 struct Inventory: View {
     
     @EnvironmentObject var csgoVM: InventoryViewModel
-    
     @NavRouter var navRouter
+    
     @State var showOpening: Bool = false
-    
     @State var nickNameText = ""
-    
     @State var blur: CGFloat = 0
     
     let columns: [GridItem] = [
@@ -29,11 +27,11 @@ struct Inventory: View {
     var body: some View {
         ZStack {
             ZStack {
-                    Background()
-                    sideBar
-                    gridBackground
-                    topBar
-                }
+                Background()
+                sideBar
+                gridBackground
+                topBar
+            }
             .blur(radius: blur)
             if showOpening {
                 openedGunView
@@ -59,93 +57,91 @@ extension Inventory {
                 .resizable()
                 .frame(width: 35)
                 .ignoresSafeArea()
-                
+            
             Spacer()
         }
     }
     
     var topBar: some View {
-            VStack {
-                ZStack {
-                    Rectangle()
-                        .frame(width: 830, height: 100)
-                        .foregroundColor(.black)
-                        .opacity(0.1)
-                        .padding(.leading, 35)
-                    
-                    CustomButton(buttonTitle: "Open Case", buttonColor: .green, buttonFont: 40) {
-                        navRouter.push(CasePreview())
-                    }
-                
-                }
-                Spacer()
-            }
-    }
-    var openedGunView: some View {
+        VStack {
             ZStack {
-                RoundedRectangle(cornerRadius: 20)
+                Rectangle()
+                    .frame(width: 830, height: 100)
                     .foregroundColor(.black)
-                    .opacity(0.3)
+                    .opacity(0.1)
                     .padding(.leading, 35)
-                VStack {
-                    VStack {
-                        Text(csgoVM.currentWeapon!.title)
-                            .font(.system(size: 30, weight: .semibold))
-                            .frame(width: 400, height:30)
-                            .foregroundColor(.white)
-                            Rectangle()
-                                .fill(Color(csgoVM.currentWeapon!.rarityColor))
-                                .frame(width: 400, height: 6)
-                        HStack(spacing:0 ) {
-                            Text("NickName:")
-                                .font(.system(size: 25, weight: .semibold))
-                                .frame(width: 200, height:30)
-                                .foregroundColor(.white)
-                            TextField("", text: $nickNameText)
-                                .font(.system(size: 25, weight: .semibold))
-                                .frame(width: 400, height:30)
-                                .foregroundColor(.red)
-                        }
-                        .offset(x: 120)
-                            Image(csgoVM.currentWeapon!.imageName)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 200, height: 200)
-                    }
-                    
-                    Spacer()
-                    HStack {
-                        CustomButton(buttonTitle: "SELL", buttonColor: .green, buttonFont: 20) {
-                            blur = 0
-                            showOpening = false
-                            csgoVM.sellWeapon()
-                            csgoVM.editWeaponName(name: nickNameText)
-                            
-                        }
-                        CustomButton(buttonTitle: "CLOSE", buttonColor: .green, buttonFont: 20) {
-                            blur = 0
-                            showOpening = false
-                            csgoVM.editWeaponName(name: nickNameText)
-                        }
-                    }
-
+                
+                CustomButton(buttonTitle: "Open Case", buttonColor: .green, buttonFont: 40) {
+                    navRouter.push(CasePreview())
                 }
             }
-            .frame(width: 630, height: 300)
+            Spacer()
+        }
+    }
+    
+    var openedGunView: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 20)
+                .foregroundColor(.black)
+                .opacity(0.3)
+                .padding(.leading, 35)
+            VStack {
+                VStack {
+                    Text(csgoVM.currentWeapon!.title)
+                        .font(.system(size: 30, weight: .semibold))
+                        .frame(width: 400, height:30)
+                        .foregroundColor(.white)
+                    Rectangle()
+                        .fill(Color(csgoVM.currentWeapon!.rarityColor))
+                        .frame(width: 400, height: 6)
+                    HStack(spacing:0 ) {
+                        Text("NickName:")
+                            .font(.system(size: 25, weight: .semibold))
+                            .frame(width: 200, height:30)
+                            .foregroundColor(.white)
+                        TextField("", text: $nickNameText)
+                            .font(.system(size: 25, weight: .semibold))
+                            .frame(width: 400, height:30)
+                            .foregroundColor(.red)
+                    }
+                    .offset(x: 120)
+                    Image(csgoVM.currentWeapon!.imageName)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 200, height: 200)
+                }
+                
+                Spacer()
+                HStack {
+                    CustomButton(buttonTitle: "SELL", buttonColor: .green, buttonFont: 20) {
+                        blur = 0
+                        showOpening = false
+                        csgoVM.sellWeapon()
+                        csgoVM.editWeaponName(name: nickNameText)
+                        
+                    }
+                    CustomButton(buttonTitle: "CLOSE", buttonColor: .green, buttonFont: 20) {
+                        blur = 0
+                        showOpening = false
+                        csgoVM.editWeaponName(name: nickNameText)
+                    }
+                }
+                
+            }
+        }
+        .frame(width: 630, height: 300)
     }
     
     var gridBackground: some View {
         VStack {
             Spacer()
             ZStack {
-                
                 inventory
             }
             .frame(width: 830, height: 320)
             .foregroundColor(.black)
             .padding(.leading, 35)
             .padding(.top, 93)
-            
         }
     }
     var inventory: some View {
@@ -168,8 +164,6 @@ extension Inventory {
                                 
                             }
                     }
-                    
-
                 }
             }
         }
