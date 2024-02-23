@@ -104,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				FA2C01012A96E77D00664990 /* Managers */,
-				FA2C00FF2A96E76B00664990 /* Model */,
 				FA2C01002A96E77200664990 /* ViewModel */,
 				FA2C01022A96E79300664990 /* View */,
 				FA2C00F52A96C3C400664990 /* Assets.xcassets */,
@@ -120,13 +119,6 @@
 				FA2C00F82A96C3C400664990 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		FA2C00FF2A96E76B00664990 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		FA2C01002A96E77200664990 /* ViewModel */ = {
