@@ -19,7 +19,6 @@ struct ContainerTitleAndImage: View {
         VStack {
             Text("Unlock Container")
                 .font(.system(size: 25))
-            
             HStack {
                 Text("Unlock")
                     .font(.system(size: 13))
@@ -27,7 +26,6 @@ struct ContainerTitleAndImage: View {
                     .font(.system(size: 14))
                     .bold()
             }
-            
             HStack {
                 Image(uiImage: .init(systemName: "info.circle.fill")!)
                     .resizable()
@@ -38,7 +36,6 @@ struct ContainerTitleAndImage: View {
                     .font(.system(size: 10))
                     .padding(.top, 3)
             }
-            
             Image(imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fill)

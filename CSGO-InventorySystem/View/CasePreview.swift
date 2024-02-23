@@ -24,17 +24,7 @@ struct CasePreview: View {
             if showOpening {
                 CaseOpening(showOpening: $showOpening)
             }
-            VStack {
-                HStack {
-                    CustomButton(buttonTitle: "Back", buttonColor: .green, buttonFont: 20) {
-                        navRouter.popToRoot()
-                    }
-                    .padding(.top, 25)
-                    .padding(.leading, 25)
-                    Spacer()
-                }
-                Spacer()
-            }
+            backButton
         }
         .onAppear {
             DatabaseUtils.whereIsMySQLite()
@@ -54,21 +44,30 @@ struct CaseOpeningAnimation_Previews: PreviewProvider {
 
 extension CasePreview {
     
+    var backButton: some View {
+        VStack {
+            HStack {
+                CustomButton(buttonTitle: "Back", buttonColor: .green, buttonFont: 20) {
+                    navRouter.popToRoot()
+                }
+                .padding(.top, 25)
+                .padding(.leading, 25)
+                Spacer()
+            }
+            Spacer()
+        }
+    }
+    
     var midBarWithButton: some View {
         HStack {
             Spacer()
             VStack(spacing: -2) {
                 HStack {
-                    
-                    
-                    
                     Text("Items that might be in this container:")
                         .font(.system(size: 12))
                         .foregroundColor(Color.white)
                         .bold()
                         .padding(.leading, 50)
-                    
-                    
                     
                     Spacer()
                     

@@ -12,19 +12,18 @@ import NavigationRouter
 struct CaseOpening: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @Binding var showOpening: Bool
-    @State var isAnimated: Bool = false
-    
-    @NavRouter var navRouter
-    
     @EnvironmentObject var csgoVM: InventoryViewModel
     
-    var audio: AVAudioPlayer?
+    @NavRouter var navRouter
+
+    @Binding var showOpening: Bool
+    
+    @State var isAnimated: Bool = false
     @State var isShuffled: Bool = false
     @State var showOpenedGun = false
-    
     @State var blur: CGFloat = 0
     
+    var audio: AVAudioPlayer?
     let gradient = LinearGradient(
     gradient: Gradient(stops: [
         .init(color: .black, location: 0),
@@ -36,27 +35,19 @@ struct CaseOpening: View {
     var body: some View {
         ZStack {
             ZStack {
-                
                 Background()
                     .zIndex(-1)
-                
                 ContainerTitleAndImage(caseName: "Dreams & Nightmares", imageName: "DreamsCase", blurRadius: 6, width: 800, height: 280)
-                
                 VStack() {
                     gunSpinAnimation
                     Spacer()
-                    
                 }
-                
-                
             }
             .blur(radius: blur)
             
             if showOpenedGun {
                 openedGunView
             }
-            
-            
         }
         .navigationBarBackButtonHidden(true)
         .onAppear {
@@ -70,14 +61,6 @@ struct CaseOpening: View {
     .zIndex(100)
     }
 }
-
-//struct CaseOpening_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CaseOpening()
-//            .previewInterfaceOrientation(.landscapeLeft)
-//
-//    }
-//}
 
 // MARK: - VIEWS
 
@@ -121,7 +104,6 @@ extension CaseOpening {
                 ForEach(Gun.gunInventory) { num in
                     GeometryReader { proxy in
                         let scale = getScale(proxy: proxy)
-                        
                         VStack(spacing: 8) {
                             Spacer(minLength: 120)
                             ZStack {
@@ -141,8 +123,6 @@ extension CaseOpening {
                                         .fill(Color(num.rarityColor))
                                         .frame(width: 150, height: 7)
                                 }
-                                
-                                    
                             }
                         }
                         .scaleEffect(.init(width: scale, height: scale))

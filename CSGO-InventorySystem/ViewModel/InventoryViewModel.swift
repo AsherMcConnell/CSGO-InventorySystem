@@ -11,7 +11,6 @@ import Foundation
 class InventoryViewModel: ObservableObject {
     
     @Published var weapons: [WeaponEntity] = []
-    
     @Published var currentWeapon: Gun?
     @Published var currentWeaponEntity: WeaponEntity?
     
